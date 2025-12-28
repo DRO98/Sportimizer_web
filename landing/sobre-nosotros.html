@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - Sportimizer ERP</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .about-page {
+            padding: 120px 0 80px;
+        }
+        .about-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .about-hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .story-section {
+            background: white;
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 3rem;
+        }
+        .story-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+        .story-section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .value-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .value-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .team-section {
+            background: var(--bg-light);
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+        }
+        .team-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .founder-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+        .founder-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        .founder-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .founder-role {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .founder-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            text-align: left;
+        }
+        .timeline-section {
+            margin-top: 4rem;
+        }
+        .timeline-section h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--gradient-primary);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-left: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+        }
+        .timeline-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .timeline-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .cta-section {
+            background: var(--gradient-primary);
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            margin-top: 4rem;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        .cta-section .btn {
+            background: white;
+            color: var(--primary-color);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .cta-section .btn:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <span class="logo-text">Sportimizer ERP</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html#home">Inicio</a></li>
+                    <li><a href="index.html#features">Características</a></li>
+                    <li><a href="index.html#modules">Módulos</a></li>
+                    <li><a href="index.html#pricing">Precios</a></li>
+                    <li><a href="index.html#contact">Contacto</a></li>
+                </ul>
+                <button class="cta-button" onclick="window.location.href='index.html#contact'">Prueba Gratis</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Page -->
+    <section class="about-page">
+        <div class="container">
+            <!-- Hero -->
+            <div class="about-hero">
+                <h1>Nuestra Historia</h1>
+                <p>Nacidos desde dentro del mundo deportivo para revolucionar la gestión de clubes</p>
+            </div>
+
+            <!-- Origin Story -->
+            <div class="story-section">
+                <h2>Cómo empezó todo</h2>
+                <p>
+                    Sportimizer ERP nació de una necesidad real. Como ingeniero de datos con una gran pasión por el deporte, 
+                    viví de primera mano los desafíos que enfrentan los clubes deportivos en su día a día: gestión manual 
+                    de jugadores, comunicaciones caóticas, contabilidad desordenada y ausencia de herramientas digitales 
+                    adecuadas.
+                </p>
+                <p>
+                    Durante la elaboración del proyecto, colaboré con mi entrenador, observando cada proceso, cada posible dificultad, 
+                    cada hora perdida en tareas administrativas que podían automatizarse. Juntos identificamos los puntos 
+                    críticos: la falta de comunicación entre el staff técnico y los padres, la dificultad para gestionar 
+                    convocatorias, el seguimiento médico desorganizado, y la imposibilidad de tener datos claros sobre 
+                    el rendimiento del equipo.
+                </p>
+                <p>
+                    Así nació Sportimizer ERP: una plataforma diseñada desde dentro, por alguien que entiende tanto la 
+                    tecnología como el deporte. No es solo un software más, es la culminación de horas en experiencia real 
+                    en clubes, creado con la visión de digitalizar y profesionalizar la gestión deportiva.
+                </p>
+            </div>
+
+            <!-- Mission & Vision -->
+            <div class="story-section">
+                <h2>Nuestra Misión</h2>
+                <p>
+                    Empoderar a clubes deportivos de todos los tamaños con herramientas digitales profesionales que 
+                    simplifiquen su gestión, mejoren la comunicación y les permitan centrarse en lo realmente importante: 
+                    formar jugadores y construir equipos exitosos.
+                </p>
+                <h2 style="margin-top: 2rem;">Nuestra Visión</h2>
+                <p>
+                    Ser la plataforma de referencia en gestión deportiva en España y Europa, donde cada club, desde el 
+                    más pequeño hasta el más grande, tenga acceso a tecnología de primer nivel para digitalizar sus 
+                    procesos y elevar su nivel de profesionalización.
+                </p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline-section">
+                <h2>Nuestro Recorrido</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-content">
+                            <h3>Identificación del Problema</h3>
+                            <p>
+                                Tras años trabajando en clubes, identificamos la enorme brecha digital que existía en la 
+                                gestión deportiva. Comenzamos a documentar todos los procesos y necesidades reales.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-content">
+                            <h3>Desarrollo y Pruebas</h3>
+                            <p>
+                                Iniciamos el desarrollo de Sportimizer ERP, trabajando mano a mano con entrenadores y 
+                                gestores de clubes. Iteramos constantemente basándonos en feedback real del terreno.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <h3>Lanzamiento Oficial</h3>
+                            <p>
+                                Lanzamos Sportimizer ERP al mercado con todos los módulos principales: gestión de jugadores, 
+                                contabilidad, comunicación, estadísticas, fisioterapia y más. Los primeros clubes se suman 
+                                a la revolución digital.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">Futuro</div>
+                        <div class="timeline-content">
+                            <h3>Expansión y Crecimiento</h3>
+                            <p>
+                                Nuestro objetivo es llegar a miles de clubes en toda España y Europa, integrando nuevas 
+                                funcionalidades basadas en inteligencia artificial, análisis predictivo y herramientas 
+                                avanzadas de rendimiento deportivo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-section">
+                <h2>¿Listo para unirte a la revolución digital deportiva?</h2>
+                <p>Únete a los clubes que ya están transformando su gestión con Sportimizer ERP</p>
+                <button class="btn" onclick="window.location.href='index.html#contact'">
+                    Comienza Tu Prueba Gratuita
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <span class="logo-text">Sportimizer ERP</span>
+                    </div>
+                    <p>La solución completa para la gestión deportiva profesional.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Producto</h4>
+                    <ul>
+                        <li><a href="index.html#features">Características</a></li>
+                        <li><a href="index.html#modules">Módulos</a></li>
+                        <li><a href="index.html#pricing">Precios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+                        <li><a href="index.html#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacidad.html">Privacidad</a></li>
+                        <li><a href="terminos.html">Términos</a></li>
+                        <li><a href="cookies.html">Cookies</a></li>
+                        <li><a href="licencia.html">Licencia</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sportimizer ERP. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
